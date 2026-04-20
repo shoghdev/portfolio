@@ -1,49 +1,49 @@
 import type { PortfolioData } from '../types/portfolio'
 
 export const portfolioData: PortfolioData = {
-  name: 'Your Name',
-  role: 'Frontend Developer',
-  location: 'Your City, Country',
-  email: 'youremail@example.com',
-  tagline: 'I build fast, accessible, and delightful web experiences.',
+  name: 'Arbor Kode',
+  role: 'Engineer & Educator',
+  location: 'Remote First',
+  email: 'hello@arbor-code.dev',
+  tagline: 'Designing and delivering resilient digital products.',
   about: [
-    'I am a frontend developer focused on React, TypeScript, and clean user interfaces.',
-    'I enjoy converting design concepts into production-ready components with scalable architecture.',
+    'Architecting secure, scalable web applications with precision and performance at the center.',
+    'Empowering teams to ship with confidence through practical mentorship and modern workflows.',
   ],
   skills: [
     {
       title: 'Core',
-      items: ['React', 'TypeScript', 'JavaScript (ESNext)', 'HTML5', 'CSS3'],
+      items: ['React.js', 'Laravel', 'PostgreSQL', 'AWS', 'Docker'],
     },
     {
       title: 'UI & Styling',
-      items: ['Ant Design', 'Responsive Design', 'Design Systems', 'Accessibility (a11y)'],
+      items: ['TypeScript', 'Python', 'Ant Design', 'Design Systems'],
     },
     {
       title: 'Tooling',
-      items: ['Vite', 'pnpm', 'ESLint', 'Git', 'REST APIs'],
+      items: ['Vite', 'ESLint', 'Git', 'REST APIs'],
     },
   ],
   projects: [
     {
-      title: 'Project One',
+      title: 'Nexus ERP System',
       description:
-        'A short description of your project. Explain the problem, your solution, and the impact.',
-      techStack: ['React', 'TypeScript', 'Ant Design'],
-      liveUrl: 'https://example.com',
-      repoUrl: 'https://github.com/your-username/project-one',
+        'A business management platform with analytics dashboards and role-based process automation.',
+      techStack: ['React', 'TypeScript', 'PostgreSQL'],
+      liveUrl: 'https://example.com/nexus-erp',
+      repoUrl: 'https://github.com/arbor-code/nexus-erp',
     },
     {
-      title: 'Project Two',
+      title: 'Digital Atrium Robotics',
       description:
-        'Another project highlight where you can demonstrate product thinking and implementation details.',
-      techStack: ['React', 'Vite', 'REST API'],
-      repoUrl: 'https://github.com/your-username/project-two',
+        'A modular robotics control interface with telemetry monitoring and anomaly detection.',
+      techStack: ['Python', 'WebSockets', 'Docker'],
+      repoUrl: 'https://github.com/arbor-code/digital-atrium-robotics',
     },
   ],
   socialLinks: [
-    { label: 'GitHub', href: 'https://github.com/your-username' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/your-username/' },
-    { label: 'X', href: 'https://x.com/your-handle' },
+    { label: 'GitHub', href: 'https://github.com/arbor-code' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/arbor-code/' },
+    { label: 'Twitter', href: 'https://x.com/arbor-code' },
   ],
 }

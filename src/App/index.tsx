@@ -1,32 +1,32 @@
-import { ConfigProvider, Space, theme } from 'antd'
+import { useState } from 'react'
+import { ConfigProvider, Space } from 'antd'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import './App.css'
-import { portfolioData } from './data/portfolio'
-import { PortfolioLayout } from './layout/PortfolioLayout'
-import { HeroSection } from './components/sections/HeroSection'
-import { AboutSection } from './components/sections/AboutSection'
-import { SkillsSection } from './components/sections/SkillsSection'
-import { ProjectsSection } from './components/sections/ProjectsSection'
-import { ContactSection } from './components/sections/ContactSection'
+import '../App.css'
+import { getAppThemeConfig, type ThemeMode } from './consts'
+import { portfolioData } from '../data/portfolio'
+import { PortfolioLayout } from '../layout/PortfolioLayout'
+import { HeroSection } from '../components/sections/HeroSection'
+import { AboutSection } from '../components/sections/AboutSection'
+import { SkillsSection } from '../components/sections/SkillsSection'
+import { ProjectsSection } from '../components/sections/ProjectsSection'
+import { ContactSection } from '../components/sections/ContactSection'
 
 function App() {
+  const [themeMode, setThemeMode] = useState<ThemeMode>('dark')
+
+  const handleThemeToggle = (checked: boolean) => {
+    setThemeMode(checked ? 'dark' : 'light')
+  }
+
   return (
-    <ConfigProvider
-      theme={{
-        algorithm: theme.defaultAlgorithm,
-        token: {
-          colorPrimary: '#5b8def',
-          borderRadius: 10,
-        },
-      }}
-    >
+    <ConfigProvider theme={getAppThemeConfig(themeMode)}>
       <BrowserRouter>
         <Routes>
           <Route
             path="/"
             element={
-              <PortfolioLayout>
-                <Space direction="vertical" size={48} style={{ width: '100%' }}>
+              <PortfolioLayout themeMode={themeMode} onThemeToggle={handleThemeToggle}>
+                <Space direction="vertical" size={48} className="app-sections-stack">
                   <HeroSection
                     name={portfolioData.name}
                     role={portfolioData.role}

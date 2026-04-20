@@ -1,0 +1,52 @@
+---
+description: React and TypeScript standards for maintainable UI code
+alwaysApply: true
+---
+
+# React + TypeScript Standards
+
+## Component design
+- Prefer small, focused functional components with explicit props types.
+- Keep components presentational when possible; move shared logic into custom hooks.
+- Avoid deeply nested JSX by extracting subcomponents when a section gets hard to scan.
+- Each component lives in its own folder named after the component (for example, `Button/`).
+- Use `index.tsx` as the component entry file; keep styles, constants, helpers, and types in separate sibling files (for example, `styles.ts`, `consts.ts`, `types.ts`).
+
+## State and effects
+- Derive state from props/data when possible instead of duplicating state.
+- Use `useEffect` only for real side effects (network, subscriptions, timers, browser APIs).
+- Always include complete and intentional dependency arrays for hooks.
+
+## Type safety
+- Avoid `any`; use precise interfaces, unions, and utility types.
+- Type event handlers and async return values explicitly when inference is unclear.
+- Model nullable states explicitly and handle loading/error/empty states in UI.
+
+## Data and UI behavior
+- Keep API/data transformation logic outside JSX and memoize expensive derivations.
+- Prefer stable keys from data (IDs), never array index when list order can change.
+- Preserve accessible semantics: labels for form controls, meaningful button text, and keyboard-friendly interactions.
+
+## Styling
+- Do not use inline styles in JSX (`style={{ ... }}` is not allowed).
+- Keep styles in dedicated files (`styles.ts`, CSS/SCSS modules, or the project standard for extracted styling).
+
+## Component folder template
+- Use this structure for each component:
+
+```text
+ComponentName/
+  index.tsx
+  styles.ts
+  consts.ts
+  utils.ts
+  types.ts
+  index.test.tsx
+```
+
+- Keep files only when needed (for example, omit `consts.ts` if there are no constants), but preserve the folder-per-component pattern and `index.tsx` entrypoint.
+
+## Project conventions
+- Follow existing ESLint and TypeScript rules; do not disable rules unless there is a documented reason in code.
+- Keep imports organized: external libs first, then internal modules.
+- Write code that is easy to review: clear names, small diffs, and minimal side effects.
