@@ -450,3 +450,26 @@
     display: none;
   }
 }
+
+.generate-cv-page {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.generate-cv-alert {
+  margin-top: 16px;
+}
+
+.generate-cv-result {
+  margin-top: 16px;
+  background: rgba(9, 24, 53, 0.92) !important;
+  border: 1px solid rgba(81, 116, 160, 0.4) !important;
+}
+
+.generate-cv-markdown {
+  white-space: normal;
+}
+
+.hero-secondary-btn a {
+  color: inherit;
+}

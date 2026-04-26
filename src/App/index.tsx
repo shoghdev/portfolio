@@ -10,6 +10,7 @@ import { AboutSection } from '../components/sections/AboutSection'
 import { SkillsSection } from '../components/sections/SkillsSection'
 import { ProjectsSection } from '../components/sections/ProjectsSection'
 import { ContactSection } from '../components/sections/ContactSection'
+import { GenerateCvPage } from '../components/GenerateCvPage'
 
 function App() {
   const [themeMode, setThemeMode] = useState<ThemeMode>('dark')
@@ -42,6 +43,14 @@ function App() {
                     socialLinks={portfolioData.socialLinks}
                   />
                 </Space>
+              </PortfolioLayout>
+            }
+          />
+          <Route
+            path="/generate-cv"
+            element={
+              <PortfolioLayout themeMode={themeMode} onThemeToggle={handleThemeToggle}>
+                <GenerateCvPage />
               </PortfolioLayout>
             }
           />

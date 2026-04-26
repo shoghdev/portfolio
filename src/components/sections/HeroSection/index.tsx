@@ -1,6 +1,7 @@
-import { MailOutlined } from '@ant-design/icons'
+import { AuditOutlined, MailOutlined } from '@ant-design/icons'
 import { Button, Space, Typography } from 'antd'
 import type { HeroSectionProps } from './types'
+import { Link } from 'react-router-dom'
 
 const { Title, Paragraph, Text } = Typography
 
@@ -23,6 +24,9 @@ export function HeroSection({ name, role, location, tagline, email }: HeroSectio
           </Button>
           <Button className="hero-secondary-btn" icon={<MailOutlined />} href={`mailto:${email}`}>
             Download CV
+          </Button>
+          <Button className="hero-secondary-btn" icon={<AuditOutlined />}>
+            <Link to="/generate-cv">Generate CV</Link>
           </Button>
         </Space>
       </div>
