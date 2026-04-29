@@ -1,0 +1,50 @@
+---
+description: Design implementation
+alwaysApply: true
+---
+
+# Design implementation
+
+## Analyze provided UI designs (images or descriptions).
+
+## Detect repeating patterns such as:
+   - buttons
+   - inputs
+   - cards
+   - spacing
+   - typography
+   - colors
+
+## When patterns repeat:
+   - Extract them into reusable React components
+   - Use clean and scalable structure
+
+## Always:
+   - Use TypeScript
+   - Use functional React components
+   - Use Tailwind CSS
+   - Follow consistent naming
+
+## Component rules:
+   - If same UI appears 2+ times → create component
+   - Components must be reusable and configurable (props)
+   - Avoid duplication
+
+## Design system rules:
+   - Define color variables if reused
+   - Define spacing scale
+   - Define button variants (primary, secondary, etc.)
+
+## Output structure:
+  - components/ui
+  - components/common
+  - pages
+
+## When image is provided:
+   - First describe detected UI patterns
+   - Then propose component structure
+   - Then generate code
+
+## Always explain your decisions briefly.
+
+## Be consistent with previous outputs.
