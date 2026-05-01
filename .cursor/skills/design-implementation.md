@@ -23,6 +23,7 @@ Detailed instructions for the agent.
 - If image is provided → describe structure before coding
 - Group similar elements
 - Identify repeating components (buttons, cards, inputs, etc.)
+- Verify that the component is missing
 - Identify layout patterns (grid, flex, spacing)
 - Identify typography and color usage
 - Standardize colors (primary, secondary, neutral)
