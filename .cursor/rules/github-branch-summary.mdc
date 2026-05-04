@@ -1,0 +1,10 @@
+description: Track changes from other contributors
+alwaysApply: true
+---
+
+# Rule
+
+- When working in a branch, check for commits from main branch.
+- Use GitHub MCP to fetch commit history.
+- Ignore commits authored by the current user.
+- Generate a summary file in /updates/<branch>/changes.md
