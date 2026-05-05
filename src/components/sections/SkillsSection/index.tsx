@@ -4,16 +4,23 @@ import type { SkillsSectionProps } from './types'
 const { Title } = Typography
 
 export function SkillsSection({ skills }: SkillsSectionProps) {
-  const allSkills = skills.flatMap((category) => category.items)
-
   return (
     <section id="skills" className="portfolio-section skills-strip">
-      <Title level={5}>MASTERED TECHNOLOGIES</Title>
-      <div className="skills-chip-row">
-        {allSkills.slice(0, 8).map((skill) => (
-          <Tag key={skill} className="skills-tag">
-            {skill}
-          </Tag>
+      <Title level={5}>Skills, Languages, and Education</Title>
+      <div className="skills-category-grid">
+        {skills.map((category) => (
+          <div key={category.title} className="skills-category-card">
+            <Title level={5} className="skills-category-title">
+              {category.title}
+            </Title>
+            <div className="skills-chip-row">
+              {category.items.map((skill) => (
+                <Tag key={`${category.title}-${skill}`} className="skills-tag">
+                  {skill}
+                </Tag>
+              ))}
+            </div>
+          </div>
         ))}
       </div>
     </section>

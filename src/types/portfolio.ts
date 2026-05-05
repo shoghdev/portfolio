@@ -16,6 +16,16 @@ export type SocialLink = {
   href: string
 }
 
+export type ExperienceEntry = {
+  role: string
+  company: string
+  employmentType?: string
+  period: string
+  startYear: number
+  endYearLabel: string
+  highlights: string[]
+}
+
 export type PortfolioData = {
   name: string
   role: string
@@ -24,6 +34,7 @@ export type PortfolioData = {
   tagline: string
   about: string[]
   skills: SkillCategory[]
+  experience: ExperienceEntry[]
   projects: Project[]
   socialLinks: SocialLink[]
 }

@@ -1,5 +1,5 @@
 import { AuditOutlined, MailOutlined } from '@ant-design/icons'
-import { Button, Space, Typography } from 'antd'
+import { Button, Card, Col, Row, Space, Typography } from 'antd'
 import type { HeroSectionProps } from './types'
 import { Link } from 'react-router-dom'
 
@@ -11,19 +11,41 @@ export function HeroSection({ name, role, location, tagline, email }: HeroSectio
       <div className="hero-intro">
         <Text className="hero-kicker">{location}</Text>
         <Title level={1} className="hero-title">
-          Building the <span>Digital Atrium.</span>
+           <span>Shogher</span> Harutyunyan
         </Title>
         <Paragraph className="hero-paragraph">
-          Full-Stack Developer &amp; Educator crafting high-performance digital infrastructure and
-          empowering the next generation of engineers through mentorship and clean architecture.
-          {` ${tagline}`}
+         {role} specializing in React, Node.js, and Laravel. {tagline}
         </Paragraph>
+        <Row gutter={[12, 12]} className="hero-focus-grid">
+          <Col xs={24} md={12}>
+            <Card bordered={false} className="hero-focus-card">
+              <Text className="hero-focus-kicker">The Engineer</Text>
+              <Paragraph className="hero-focus-text">
+                Building high-performance infrastructure with clean architecture and scalable frontend
+                systems.
+              </Paragraph>
+            </Card>
+          </Col>
+          <Col xs={24} md={12}>
+            <Card bordered={false} className="hero-focus-card">
+              <Text className="hero-focus-kicker">The Educator</Text>
+              <Paragraph className="hero-focus-text">
+                Turning complex programming and robotics concepts into practical learning experiences.
+              </Paragraph>
+            </Card>
+          </Col>
+        </Row>
         <Space size={10}>
-          <Button type="primary" className="hero-primary-btn">
-            Start a Project
+          <Button type="primary" className="hero-primary-btn" href="/#projects">
+            View Case Studies
           </Button>
-          <Button className="hero-secondary-btn" icon={<MailOutlined />} href={`mailto:${email}`}>
-            Download CV
+          {email ? (
+            <Button className="hero-secondary-btn" icon={<MailOutlined />} href={`mailto:${email}`}>
+              Download CV
+            </Button>
+          ) : null}
+          <Button className="hero-secondary-btn" href="/blog">
+            Check out my notes
           </Button>
           <Button className="hero-secondary-btn" icon={<AuditOutlined />}>
             <Link to="/generate-cv">Generate CV</Link>

@@ -1,13 +1,13 @@
 const engineerHighlights = [
-  'React architecture, state, and design systems',
-  'Modern JavaScript and performance-first development',
-  'Scalable frontend infrastructure for product teams',
+  'Clean architecture, scalable backend logic, and performance-first delivery',
+  'User-centered UI/UX implementation with reusable component systems',
+  'Strong communication and team collaboration across product environments',
 ]
 
 const educatorHighlights = [
-  'Practical, project-first mentorship',
-  'Curriculum for modern frontend workflows',
-  'Career-focused coaching and review',
+  'Project-based teaching that turns complex concepts into practical outcomes',
+  'Mentorship in programming, robotics, and computational thinking',
+  'Leadership through hands-on support, debugging guidance, and iteration',
 ]
 
 export { engineerHighlights, educatorHighlights }
