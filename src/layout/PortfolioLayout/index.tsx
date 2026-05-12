@@ -1,15 +1,13 @@
 import { useEffect, type PropsWithChildren } from 'react'
-import { MessageOutlined } from '@ant-design/icons'
-import { Button, Layout, Typography } from 'antd'
-import { Link, useLocation, useNavigate } from 'react-router-dom'
-import { navItems } from './consts'
+import { Layout, Typography } from 'antd'
+import { Link, useLocation } from 'react-router-dom'
+import { PortfolioHomeNav } from '../../components/common/PortfolioHomeNav'
 
-const { Header, Content, Footer } = Layout
+const { Content, Footer } = Layout
 const { Text } = Typography
 
 export function PortfolioLayout({ children }: PropsWithChildren) {
   const location = useLocation()
-  const navigate = useNavigate()
 
   useEffect(() => {
     if (!location.hash) {
@@ -26,29 +24,7 @@ export function PortfolioLayout({ children }: PropsWithChildren) {
 
   return (
     <Layout className="app-root-layout">
-      <Header className="portfolio-header">
-        <div className="portfolio-header-inner">
-          <Link to="/" className="portfolio-logo-wrap" aria-label="Home">
-            <span className="portfolio-logo-mark">S.</span>
-            <span className="portfolio-logo-name">Shogher Harutyunyan</span>
-          </Link>
-          <nav className="portfolio-nav" aria-label="Main">
-            {navItems.map((item) => (
-              <a key={item.key} href={item.href} className="portfolio-nav-link">
-                {item.label}
-              </a>
-            ))}
-          </nav>
-          <Button
-            type="default"
-            icon={<MessageOutlined />}
-            className="portfolio-header-cta"
-            onClick={() => void navigate('/get-in-touch')}
-          >
-            Let&apos;s Talk
-          </Button>
-        </div>
-      </Header>
+      <PortfolioHomeNav />
       <Content className="portfolio-content">{children}</Content>
       <Footer className="app-footer">
         <Text className="app-footer-copy">Shogher Harutyunyan · {new Date().getFullYear()}</Text>

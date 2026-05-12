@@ -1,6 +1,7 @@
 import { MailOutlined } from '@ant-design/icons'
 import { Button, Card, Space, Typography } from 'antd'
 import { useNavigate } from 'react-router-dom'
+import { SectionReveal } from '../../common/SectionReveal'
 import type { ContactSectionProps } from './types'
 
 const { Title, Text, Link } = Typography
@@ -9,7 +10,7 @@ export function ContactSection({ email, socialProfiles }: ContactSectionProps) {
   const navigate = useNavigate()
 
   return (
-    <section id="contact" className="pf-section pf-section-contact">
+    <SectionReveal id="contact" className="pf-section pf-section-contact">
       <Card bordered={false} className="pf-surface-card pf-contact-card">
         <Title level={2} className="pf-section-title">
           Contact
@@ -30,10 +31,15 @@ export function ContactSection({ email, socialProfiles }: ContactSectionProps) {
             </Button>
           ))}
         </Space>
-        <Button type="primary" size="large" className="pf-contact-cta-primary" onClick={() => void navigate('/get-in-touch')}>
+        <Button
+          type="primary"
+          size="large"
+          className="pf-primary-pill-btn pf-contact-cta-primary"
+          onClick={() => void navigate('/get-in-touch')}
+        >
           Let&apos;s Talk
         </Button>
       </Card>
-    </section>
+    </SectionReveal>
   )
 }

@@ -33,7 +33,11 @@ export function SectionReveal({ children, id, className = '', delay = 0 }: Secti
   }, [delay])
 
   return (
-    <section ref={ref} id={id} className={`section-reveal${visible ? ' section-reveal-visible' : ''} ${className}`.trim()}>
+    <section
+      ref={ref}
+      id={id}
+      className={`section-reveal${visible ? ' section-reveal-visible' : ''} ${className}`.trim()}
+    >
       {children}
     </section>
   )

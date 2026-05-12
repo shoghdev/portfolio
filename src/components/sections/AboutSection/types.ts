@@ -1,3 +1,3 @@
 import type { PortfolioData } from '../../../types/portfolio'
 
-export type AboutSectionProps = Pick<PortfolioData, 'about' | 'aboutStack'>
+export type AboutSectionProps = Pick<PortfolioData, 'about'>

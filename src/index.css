@@ -1,20 +1,25 @@
-:root {
-  /* Reference palette */
-  --design-dark: #004d3d;
-  --design-lime: #32cd32;
-  --design-lime-dark: #28b828;
-  --design-bg: #f4f7f6;
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap');
+
+:root,
+[data-theme='light'] {
+  --pf-emerald: #16a34a;
+  --pf-emerald-dark: #15803d;
+  --pf-emerald-glow: rgba(22, 163, 74, 0.22);
+  --design-bg: #ffffff;
+  --design-bg-muted: #f8fafc;
   --design-card: #ffffff;
-  /* Aliases for App.css */
-  --pf-green-600: var(--design-lime);
-  --pf-green-700: var(--design-lime-dark);
-  --pf-green-900: var(--design-dark);
-  --pf-slate-900: #0a0f0d;
-  --pf-slate-600: #3d524c;
-  --pf-slate-500: #5c726b;
-  --pf-border: #e0ebe8;
-  --pf-muted-bg: #eef4f2;
+  --design-card-elevated: #ffffff;
+  --pf-text: #111827;
+  --pf-text-muted: #4b5563;
+  --pf-text-subtle: #6b7280;
+  --pf-border: #e5e7eb;
+  --pf-shadow: 0 18px 48px rgba(17, 24, 39, 0.07);
+  --pf-shadow-soft: 0 10px 30px rgba(17, 24, 39, 0.06);
+  --pf-hero-panel: #14532d;
+  --pf-hero-accent-block: #22c55e;
+  --pf-muted-bg: #f8fafc;
   font-family:
+    'Plus Jakarta Sans',
     Inter,
     system-ui,
     -apple-system,
@@ -27,8 +32,43 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: var(--pf-slate-900);
-  background: var(--design-bg);
+  color: var(--pf-text);
+  background: var(--design-bg-muted);
+}
+
+[data-theme='dark'] {
+  --design-bg: #0b1120;
+  --design-bg-muted: #0b1120;
+  --design-card: #111827;
+  --design-card-elevated: #111827;
+  --pf-text: #f9fafb;
+  --pf-text-muted: #d1d5db;
+  --pf-text-subtle: #9ca3af;
+  --pf-border: #1f2937;
+  --pf-shadow: 0 24px 56px rgba(0, 0, 0, 0.45);
+  --pf-shadow-soft: 0 16px 40px rgba(0, 0, 0, 0.35);
+  --pf-hero-panel: #052e16;
+  --pf-hero-accent-block: #16a34a;
+  --pf-muted-bg: #111827;
+}
+
+/* Legacy aliases used across App.css */
+[data-theme='light'] {
+  --pf-green-600: var(--pf-emerald);
+  --pf-green-700: var(--pf-emerald-dark);
+  --pf-green-900: var(--pf-emerald-dark);
+  --pf-slate-900: var(--pf-text);
+  --pf-slate-600: var(--pf-text-muted);
+  --pf-slate-500: var(--pf-text-subtle);
+}
+
+[data-theme='dark'] {
+  --pf-green-600: var(--pf-emerald);
+  --pf-green-700: var(--pf-emerald-dark);
+  --pf-green-900: var(--pf-emerald-dark);
+  --pf-slate-900: var(--pf-text);
+  --pf-slate-600: var(--pf-text-muted);
+  --pf-slate-500: var(--pf-text-subtle);
 }
 
 * {

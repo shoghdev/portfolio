@@ -1,13 +1,13 @@
 import { Col, ConfigProvider, Row } from 'antd'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import '../App.css'
+import { useThemeMode } from '../theme/useThemeMode'
 import { getAppThemeConfig } from './consts'
 import { portfolioData } from '../data/portfolio'
 import { PortfolioLayout } from '../layout/PortfolioLayout'
 import { HeroSection } from '../components/sections/HeroSection'
 import { AboutSection } from '../components/sections/AboutSection'
-import { TestimonialsSection } from '../components/sections/TestimonialsSection'
-import { SkillsSection } from '../components/sections/SkillsSection'
+import { SkillsDetailSection } from '../components/sections/SkillsDetailSection'
 import { EducationSection } from '../components/sections/EducationSection'
 import { ExperienceSection } from '../components/sections/ExperienceSection'
 import { ProjectsSection } from '../components/sections/ProjectsSection'
@@ -18,8 +18,10 @@ import { BlogPostPage } from '../components/BlogPostPage'
 import { GetInTouchPage } from '../components/GetInTouchPage'
 
 function App() {
+  const { mode } = useThemeMode()
+
   return (
-    <ConfigProvider theme={getAppThemeConfig()}>
+    <ConfigProvider theme={getAppThemeConfig(mode)}>
       <BrowserRouter>
         <Routes>
           <Route
@@ -35,22 +37,19 @@ function App() {
                     phone={portfolioData.phone}
                     socialProfiles={portfolioData.socialProfiles}
                   />
-                  <Row gutter={[28, 28]} className="pf-home-split" wrap>
-                    <Col xs={24} lg={9} xl={8}>
-                      <div className="pf-sidebar-stack">
-                        <AboutSection about={portfolioData.about} aboutStack={portfolioData.aboutStack} />
-                        <TestimonialsSection testimonials={portfolioData.testimonials} />
-                        <SkillsSection technicalSkills={portfolioData.technicalSkills} />
-                        <EducationSection education={portfolioData.education} />
-                      </div>
+                  <Row gutter={[28, 28]} className="pf-about-exp-split" align="top" wrap>
+                    <Col xs={24} xl={9} lg={24} className="pf-about-exp-about">
+                      <AboutSection about={portfolioData.about} />
                     </Col>
-                    <Col xs={24} lg={15} xl={16}>
-                      <div className="pf-main-stack">
+                    <Col xs={24} xl={15} lg={24} className="pf-about-exp-exp">
+                      <div className="pf-exp-projects-stack">
                         <ExperienceSection experience={portfolioData.experience} />
                         <ProjectsSection projects={portfolioData.projects} />
                       </div>
                     </Col>
                   </Row>
+                  <SkillsDetailSection technicalSkills={portfolioData.technicalSkills} />
+                  <EducationSection education={portfolioData.education} />
                   <ContactSection email={portfolioData.email} socialProfiles={portfolioData.socialProfiles} />
                 </div>
               </PortfolioLayout>

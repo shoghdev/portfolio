@@ -1,15 +1,16 @@
 import { GlobalOutlined, RightOutlined } from '@ant-design/icons'
 import { Card, List, Typography } from 'antd'
+import { SectionReveal } from '../../common/SectionReveal'
 import type { ProjectsSectionProps } from './types'
 
 const { Title } = Typography
 
 export function ProjectsSection({ projects }: ProjectsSectionProps) {
   return (
-    <section id="projects" className="pf-section pf-section-main">
+    <SectionReveal id="projects" className="pf-section pf-section-main">
       <Card bordered={false} className="pf-surface-card pf-main-card pf-projects-card">
         <Title level={2} className="pf-card-title">
-          Key Projects
+          Key projects
         </Title>
         <List
           className="pf-projects-ant-list"
@@ -38,6 +39,6 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
           <RightOutlined className="pf-projects-view-all-icon" aria-hidden />
         </a>
       </Card>
-    </section>
+    </SectionReveal>
   )
 }
