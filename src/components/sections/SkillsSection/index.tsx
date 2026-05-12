@@ -1,28 +1,31 @@
-import { Tag, Typography } from 'antd'
+import { Card, Col, Row, Typography } from 'antd'
 import type { SkillsSectionProps } from './types'
 
-const { Title } = Typography
+const { Title, Text } = Typography
 
-export function SkillsSection({ skills }: SkillsSectionProps) {
+export function SkillsSection({ technicalSkills }: SkillsSectionProps) {
   return (
-    <section id="skills" className="portfolio-section skills-strip">
-      <Title level={5}>Skills, Languages, and Education</Title>
-      <div className="skills-category-grid">
-        {skills.map((category) => (
-          <div key={category.title} className="skills-category-card">
-            <Title level={5} className="skills-category-title">
-              {category.title}
-            </Title>
-            <div className="skills-chip-row">
-              {category.items.map((skill) => (
-                <Tag key={`${category.title}-${skill}`} className="skills-tag">
-                  {skill}
-                </Tag>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
+    <section id="skills" className="pf-section pf-section-sidebar">
+      <Card bordered={false} className="pf-surface-card pf-sidebar-card pf-skills-card">
+        <Title level={2} className="pf-sidebar-title">
+          Technical Skills
+        </Title>
+        <Row gutter={[14, 14]}>
+          {technicalSkills.map((skill) => {
+            const mark = skill.shortLabel ?? skill.label.slice(0, 2)
+            return (
+              <Col key={skill.id} xs={12} sm={8}>
+                <div className="pf-skill-tile">
+                  <span className="pf-skill-tile-icon" aria-hidden="true">
+                    {mark}
+                  </span>
+                  <Text className="pf-skill-tile-label">{skill.label}</Text>
+                </div>
+              </Col>
+            )
+          })}
+        </Row>
+      </Card>
     </section>
   )
 }

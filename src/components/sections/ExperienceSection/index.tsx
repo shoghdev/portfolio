@@ -1,58 +1,51 @@
-import { Tag, Typography } from 'antd'
+import { ExportOutlined } from '@ant-design/icons'
+import { Button, Card, List, Timeline, Typography } from 'antd'
+import { useNavigate } from 'react-router-dom'
 import type { ExperienceSectionProps } from './types'
 
-const { Title, Paragraph, Text } = Typography
+const { Title, Text } = Typography
 
 export function ExperienceSection({ experience }: ExperienceSectionProps) {
-  const spotlightEntry = experience.find((entry) => entry.company === 'Apricode Inc.') ?? experience[0]
-  const topEntries = experience.filter((entry) => entry !== spotlightEntry).slice(0, 2)
+  const navigate = useNavigate()
 
   return (
-    <section id="experience" className="portfolio-section experience-section">
-      <div className="experience-top-grid">
-        {topEntries.map((entry, index) => (
-          <article key={`${entry.role}-${entry.company}`} className={`experience-mini-card experience-mini-card-${index + 1}`}>
-            <div className="experience-mini-head">
-              <span className="experience-mini-icon" aria-hidden="true" />
-              <Text className="experience-mini-period">{entry.period}</Text>
-            </div>
-            <Title level={3} className="experience-mini-role">
-              {entry.role}
-            </Title>
-            <Text className="experience-mini-company">{entry.company}</Text>
-            <Paragraph className="experience-mini-summary">{entry.highlights[0]}</Paragraph>
-            {index === 1 ? <div className="experience-mini-media" aria-hidden="true" /> : null}
-          </article>
-        ))}
-      </div>
-
-      <article key={`${spotlightEntry.role}-${spotlightEntry.company}`} className="experience-card">
-        <div className="experience-card-main">
-          <Text className="experience-kicker">Core Career Pivot</Text>
-          <Title level={2} className="experience-title">
-            {spotlightEntry.role}
-          </Title>
-          <Title level={3} className="experience-company">
-            {spotlightEntry.company}
-          </Title>
-          <div className="experience-meta">
-            {spotlightEntry.employmentType ? (
-              <Tag className="experience-meta-tag">{spotlightEntry.employmentType}</Tag>
-            ) : null}
-            <Tag className="experience-meta-tag">{spotlightEntry.period}</Tag>
-          </div>
-          {spotlightEntry.highlights.slice(0, 2).map((highlight) => (
-            <Paragraph key={highlight} className="experience-highlight">
-              {highlight}
-            </Paragraph>
-          ))}
-        </div>
-        <aside className="experience-years" aria-label={`${spotlightEntry.role} years`}>
-          <Text className="experience-start-year">{spotlightEntry.startYear}</Text>
-          <span className="experience-year-divider" />
-          <Text className="experience-end-year">{spotlightEntry.endYearLabel}</Text>
-        </aside>
-      </article>
+    <section id="experience" className="pf-section pf-section-main">
+      <Card bordered={false} className="pf-surface-card pf-main-card pf-experience-card">
+        <Title level={2} className="pf-card-title">
+          Professional Experience
+        </Title>
+        <Timeline
+          className="pf-ant-timeline pf-experience-timeline"
+          items={experience.map((entry) => ({
+            color: '#32cd32',
+            children: (
+              <div className="pf-experience-block">
+                <Text className="pf-experience-period">{entry.period}</Text>
+                <Title level={4} className="pf-experience-job-title">
+                  {entry.role}
+                </Title>
+                <Text className="pf-experience-company">{entry.company}</Text>
+                <List
+                  size="small"
+                  split={false}
+                  className="pf-experience-list"
+                  dataSource={entry.highlights}
+                  renderItem={(item) => <List.Item className="pf-experience-list-item">{item}</List.Item>}
+                />
+              </div>
+            ),
+          }))}
+        />
+        <Button
+          type="primary"
+          size="large"
+          icon={<ExportOutlined />}
+          className="pf-experience-cta"
+          onClick={() => void navigate('/#projects')}
+        >
+          View Projects
+        </Button>
+      </Card>
     </section>
   )
 }

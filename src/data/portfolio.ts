@@ -1,15 +1,64 @@
 import type { PortfolioData } from '../types/portfolio'
 
 export const portfolioData: PortfolioData = {
+  firstName: 'Shogher',
+  lastName: 'Harutyunyan',
   name: 'Shogher Harutyunyan',
-  role: 'Full-Stack Developer',
+  role: 'Full-stack Developer',
   location: 'Yerevan, Armenia',
   email: 'shogher.fordev@gmail.com',
+  phone: '+374 00 000 000',
   tagline:
     'Specializing in building fast, scalable, and user-centered web applications with React, Node.js, and Laravel.',
   about: [
     'Focused on clean architecture, intuitive UI/UX, and efficient backend logic that delivers real value.',
     'Alongside development, I teach programming and robotics through practical, project-based learning that strengthens communication, leadership, and problem-solving.',
+  ],
+  aboutStack: [
+    { id: 'laravel', label: 'Laravel', shortLabel: 'La' },
+    { id: 'tailwind', label: 'Tailwind CSS', shortLabel: 'TW' },
+    { id: 'mysql', label: 'MySQL', shortLabel: 'SQL' },
+    { id: 'js', label: 'JavaScript', shortLabel: 'JS' },
+  ],
+  technicalSkills: [
+    { id: 'html5', label: 'HTML5', shortLabel: 'H5' },
+    { id: 'css3', label: 'CSS3', shortLabel: 'C3' },
+    { id: 'js', label: 'JS', shortLabel: 'JS' },
+    { id: 'laravel', label: 'Laravel', shortLabel: 'Lv' },
+    { id: 'livewire', label: 'Livewire', shortLabel: 'Lw' },
+    { id: 'react', label: 'React.js', shortLabel: 'Rx' },
+  ],
+  education: [
+    {
+      period: '2024 - 2025',
+      title: 'Full-stack JavaScript development',
+      institution: 'PicsArt Academy',
+    },
+    {
+      period: '2021 - 2022',
+      title: 'Full-stack Development Certification',
+      institution: 'AGBU Women Coders Program',
+    },
+  ],
+  testimonials: [
+    {
+      quote:
+        'Consistently delivered thoughtful solutions across React and Laravel, communicated clearly with the team, and raised the quality bar on every release.',
+      author: 'Apricode Team',
+      role: 'Team Lead',
+    },
+    {
+      quote:
+        'Outstanding mentorship in robotics and programming—students stayed engaged because lessons were practical, well structured, and genuinely fun.',
+      author: 'Armath Engineering Makerspaces',
+      role: 'Program Coordinator',
+    },
+    {
+      quote:
+        'Bridges product design and implementation exceptionally well; responsive UIs and reliable APIs shipped on time without sacrificing maintainability.',
+      author: 'Product collaborators',
+      role: 'Cross-functional partners',
+    },
   ],
   skills: [
     {
@@ -206,6 +255,10 @@ export const portfolioData: PortfolioData = {
       techStack: ['React.js', 'Laravel', 'MySQL'],
       liveUrl: 'https://nvbrokerage.com/',
     },
+  ],
+  socialProfiles: [
+    { label: 'GitHub', href: 'https://github.com/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
   ],
   socialLinks: [
     { label: 'Foodetory', href: 'https://foodetory.am/hy' },

@@ -1,6 +1,3 @@
-import type { SocialLink } from '../../../types/portfolio'
+import type { PortfolioData } from '../../../types/portfolio'
 
-export type ContactSectionProps = {
-  email: string
-  socialLinks: SocialLink[]
-}
+export type ContactSectionProps = Pick<PortfolioData, 'email' | 'socialProfiles'>

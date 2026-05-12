@@ -1,17 +1,29 @@
 import { theme } from 'antd'
 
-export type ThemeMode = 'light' | 'dark'
-
-export const getAppThemeConfig = (mode: ThemeMode) => {
-  const isDarkMode = mode === 'dark'
-
-  return {
-    algorithm: isDarkMode ? theme.darkAlgorithm : theme.defaultAlgorithm,
-    token: {
-      colorPrimary: '#57dca8',
-      borderRadius: 10,
-      colorText: isDarkMode ? '#d8e8f7' : '#10213c',
-      colorBgBase: isDarkMode ? '#070f27' : '#eff5ff',
+export const getAppThemeConfig = () => ({
+  algorithm: theme.defaultAlgorithm,
+  token: {
+    colorPrimary: '#32cd32',
+    colorSuccess: '#32cd32',
+    borderRadius: 12,
+    borderRadiusLG: 16,
+    colorText: '#0a0f0d',
+    colorTextSecondary: '#3d524c',
+    colorBgBase: '#f4f7f6',
+    colorBorder: '#e0ebe8',
+    fontFamily: 'Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif',
+    lineHeightHeading: 1.15,
+  },
+  components: {
+    Card: {
+      headerBg: 'transparent',
     },
-  }
-}
+    Timeline: {
+      tailColor: 'rgba(50, 205, 50, 0.35)',
+      dotBg: '#32cd32',
+    },
+    Button: {
+      primaryShadow: '0 4px 14px rgba(50, 205, 50, 0.35)',
+    },
+  },
+})

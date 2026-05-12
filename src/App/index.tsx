@@ -1,13 +1,14 @@
-import { useState } from 'react'
-import { ConfigProvider, Space } from 'antd'
+import { Col, ConfigProvider, Row } from 'antd'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom'
 import '../App.css'
-import { getAppThemeConfig, type ThemeMode } from './consts'
+import { getAppThemeConfig } from './consts'
 import { portfolioData } from '../data/portfolio'
 import { PortfolioLayout } from '../layout/PortfolioLayout'
 import { HeroSection } from '../components/sections/HeroSection'
 import { AboutSection } from '../components/sections/AboutSection'
+import { TestimonialsSection } from '../components/sections/TestimonialsSection'
 import { SkillsSection } from '../components/sections/SkillsSection'
+import { EducationSection } from '../components/sections/EducationSection'
 import { ExperienceSection } from '../components/sections/ExperienceSection'
 import { ProjectsSection } from '../components/sections/ProjectsSection'
 import { ContactSection } from '../components/sections/ContactSection'
@@ -17,44 +18,48 @@ import { BlogPostPage } from '../components/BlogPostPage'
 import { GetInTouchPage } from '../components/GetInTouchPage'
 
 function App() {
-  const [themeMode, setThemeMode] = useState<ThemeMode>('dark')
-
-  const handleThemeToggle = (checked: boolean) => {
-    setThemeMode(checked ? 'dark' : 'light')
-  }
-
   return (
-    <ConfigProvider theme={getAppThemeConfig(themeMode)}>
+    <ConfigProvider theme={getAppThemeConfig()}>
       <BrowserRouter>
         <Routes>
           <Route
             path="/"
             element={
-              <PortfolioLayout themeMode={themeMode} onThemeToggle={handleThemeToggle}>
-                <Space direction="vertical" size={48} className="app-sections-stack">
+              <PortfolioLayout>
+                <div className="app-home">
                   <HeroSection
-                    name={portfolioData.name}
+                    firstName={portfolioData.firstName}
+                    lastName={portfolioData.lastName}
                     role={portfolioData.role}
-                    location={portfolioData.location}
-                    tagline={portfolioData.tagline}
                     email={portfolioData.email}
+                    phone={portfolioData.phone}
+                    socialProfiles={portfolioData.socialProfiles}
                   />
-                  <AboutSection about={portfolioData.about} />
-                  <SkillsSection skills={portfolioData.skills} />
-                  <ExperienceSection experience={portfolioData.experience} />
-                  <ProjectsSection projects={portfolioData.projects} />
-                  <ContactSection
-                    email={portfolioData.email}
-                    socialLinks={portfolioData.socialLinks}
-                  />
-                </Space>
+                  <Row gutter={[28, 28]} className="pf-home-split" wrap>
+                    <Col xs={24} lg={9} xl={8}>
+                      <div className="pf-sidebar-stack">
+                        <AboutSection about={portfolioData.about} aboutStack={portfolioData.aboutStack} />
+                        <TestimonialsSection testimonials={portfolioData.testimonials} />
+                        <SkillsSection technicalSkills={portfolioData.technicalSkills} />
+                        <EducationSection education={portfolioData.education} />
+                      </div>
+                    </Col>
+                    <Col xs={24} lg={15} xl={16}>
+                      <div className="pf-main-stack">
+                        <ExperienceSection experience={portfolioData.experience} />
+                        <ProjectsSection projects={portfolioData.projects} />
+                      </div>
+                    </Col>
+                  </Row>
+                  <ContactSection email={portfolioData.email} socialProfiles={portfolioData.socialProfiles} />
+                </div>
               </PortfolioLayout>
             }
           />
           <Route
             path="/generate-cv"
             element={
-              <PortfolioLayout themeMode={themeMode} onThemeToggle={handleThemeToggle}>
+              <PortfolioLayout>
                 <GenerateCvPage />
               </PortfolioLayout>
             }
@@ -62,7 +67,7 @@ function App() {
           <Route
             path="/blog"
             element={
-              <PortfolioLayout themeMode={themeMode} onThemeToggle={handleThemeToggle}>
+              <PortfolioLayout>
                 <BlogPage />
               </PortfolioLayout>
             }
@@ -70,7 +75,7 @@ function App() {
           <Route
             path="/blog/:slug"
             element={
-              <PortfolioLayout themeMode={themeMode} onThemeToggle={handleThemeToggle}>
+              <PortfolioLayout>
                 <BlogPostPage />
               </PortfolioLayout>
             }
@@ -79,7 +84,7 @@ function App() {
           <Route
             path="/get-in-touch"
             element={
-              <PortfolioLayout themeMode={themeMode} onThemeToggle={handleThemeToggle}>
+              <PortfolioLayout>
                 <GetInTouchPage />
               </PortfolioLayout>
             }

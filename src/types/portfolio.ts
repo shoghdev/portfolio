@@ -26,15 +26,42 @@ export type ExperienceEntry = {
   highlights: string[]
 }
 
+export type Testimonial = {
+  quote: string
+  author: string
+  role: string
+}
+
+export type EducationEntry = {
+  period: string
+  title: string
+  institution: string
+}
+
+export type TechHighlight = {
+  id: string
+  label: string
+  /** Short mark shown in logo-style tiles (about stack uses grayscale). */
+  shortLabel?: string
+}
+
 export type PortfolioData = {
+  firstName: string
+  lastName: string
   name: string
   role: string
   location: string
   email: string
+  phone?: string
   tagline: string
   about: string[]
+  aboutStack: TechHighlight[]
+  technicalSkills: TechHighlight[]
+  education: EducationEntry[]
+  testimonials: Testimonial[]
   skills: SkillCategory[]
   experience: ExperienceEntry[]
   projects: Project[]
   socialLinks: SocialLink[]
+  socialProfiles: SocialLink[]
 }
