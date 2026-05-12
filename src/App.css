@@ -1,11 +1,12 @@
 /* ——— Layout ——— */
 .app-root-layout {
   min-height: 100vh;
+  overflow-x: clip;
   background: var(--design-bg-muted);
   color: var(--pf-text);
 }
 
-.portfolio-content {
+.portfolio-content, .pf-home-nav-wrap {
   width: min(1320px, 100%);
   margin: 0 auto;
   padding: 28px 28px 56px;
@@ -269,10 +270,45 @@
 }
 
 .app-home {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 36px;
   width: 100%;
+}
+
+/* Vertical “HELLO” page watermark (home) — sits behind main sections */
+.pf-hello-watermark {
+  position: fixed;
+  top: clamp(104px, 18vh, 200px);
+  left: clamp(0px, calc(50% - min(50vw, 660px) - 4px), 24px);
+  z-index: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  pointer-events: none;
+  user-select: none;
+}
+
+.pf-hello-watermark-letter {
+  display: block;
+  font-family: inherit;
+  font-size: clamp(3.25rem, 9.5vw, 7.5rem);
+  font-weight: 800;
+  line-height: 0.78;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--pf-text) 5.5%, transparent);
+}
+
+[data-theme='dark'] .pf-hello-watermark-letter {
+  color: color-mix(in srgb, var(--pf-text) 6%, transparent);
+}
+
+@media (max-width: 576px) {
+  .pf-hello-watermark {
+    display: none;
+  }
 }
 
 .pf-about-exp-split.ant-row {
@@ -417,6 +453,8 @@
   padding: 12px 0 8px;
   overflow: hidden;
   border-radius: 28px;
+  margin-bottom: 20px;
+  padding: 20px;
 }
 
 .pf-hero-bg-photo {
@@ -749,7 +787,6 @@
   display: block;
   width: 100%;
   height: auto;
-  vertical-align: middle;
 }
 
 /* ——— About (Ant Card) ——— */
@@ -763,6 +800,30 @@
 
 .pf-about-cv-btn {
   margin-top: 4px;
+}
+
+.pf-about-cv-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+.pf-about-download-btn.ant-btn-lg {
+  border-radius: 999px;
+  height: 48px;
+  padding-inline: 26px;
+  font-weight: 700;
+  border: 1px solid var(--pf-border);
+  background: var(--design-card);
+  color: var(--pf-text);
+  box-shadow: none;
+}
+
+.pf-about-download-btn.ant-btn-default:not(:disabled):hover {
+  border-color: var(--pf-green-600);
+  color: var(--pf-green-600);
+  background: var(--design-bg-muted);
 }
 
 .pf-about-stack-logos {
@@ -1375,22 +1436,41 @@
   border-radius: 999px;
 }
 
-.pf-skills-badge-card .ant-card-body {
-  padding-bottom: 28px;
+.pf-skills-section-fullbleed {
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+.pf-skills-badge-card-fullbleed .ant-card-body {
+  padding: 28px 0 28px;
+}
+
+.pf-skills-card-heading {
+  padding-inline: 28px;
+}
+
+.pf-skills-card-heading .pf-card-title {
+  margin-bottom: 20px;
 }
 
 .pf-skill-marquee {
   overflow: hidden;
-  margin: 0 -6px;
+  margin: 0;
   padding: 6px 0;
-  mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 5%, #000 95%, transparent);
+  width: 100%;
+  mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
 }
 
 .pf-skill-marquee-track {
+  --pf-skill-marquee-segments: 2;
+  --pf-skill-marquee-duration: 36s;
   display: flex;
   width: max-content;
-  animation: pf-skill-marquee 42s linear infinite;
+  will-change: transform;
+  animation: pf-skill-marquee var(--pf-skill-marquee-duration) linear infinite;
 }
 
 .pf-skill-marquee-group {
@@ -1402,11 +1482,11 @@
 }
 
 @keyframes pf-skill-marquee {
-  0% {
-    transform: translateX(0);
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  100% {
-    transform: translateX(-50%);
+  to {
+    transform: translate3d(calc(-100% / var(--pf-skill-marquee-segments, 2)), 0, 0);
   }
 }
 
@@ -1418,6 +1498,7 @@
     max-width: 100%;
     justify-content: center;
     row-gap: 12px;
+    will-change: auto;
   }
 
   .pf-skill-marquee-group-duplicate {
@@ -1513,6 +1594,10 @@
 @media (max-width: 768px) {
   .pf-inner-name {
     display: none;
+  }
+
+  .pf-skills-card-heading {
+    padding-inline: 16px;
   }
 
   .portfolio-content {

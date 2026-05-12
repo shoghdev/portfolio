@@ -8,6 +8,7 @@ export const portfolioData: PortfolioData = {
   location: 'Yerevan, Armenia',
   email: 'shogher.fordev@gmail.com',
   phone: '+374 00 000 000',
+  cvDownloadPath: '/Shogher-Harutyunyan-CV.pdf',
   tagline:
     'Specializing in building fast, scalable, and user-centered web applications with React, Node.js, and Laravel.',
   about: [

@@ -11,6 +11,7 @@ import { SkillsDetailSection } from '../components/sections/SkillsDetailSection'
 import { EducationSection } from '../components/sections/EducationSection'
 import { ExperienceSection } from '../components/sections/ExperienceSection'
 import { ProjectsSection } from '../components/sections/ProjectsSection'
+import { VerticalHelloWatermark } from '../components/common/VerticalHelloWatermark'
 import { ContactSection } from '../components/sections/ContactSection'
 import { GenerateCvPage } from '../components/GenerateCvPage'
 import { BlogPage } from '../components/BlogPage'
@@ -29,6 +30,7 @@ function App() {
             element={
               <PortfolioLayout>
                 <div className="app-home">
+                  <VerticalHelloWatermark />
                   <HeroSection
                     firstName={portfolioData.firstName}
                     lastName={portfolioData.lastName}
@@ -39,13 +41,16 @@ function App() {
                   />
                   <Row gutter={[28, 28]} className="pf-about-exp-split" align="top" wrap>
                     <Col xs={24} xl={9} lg={24} className="pf-about-exp-about">
-                      <AboutSection about={portfolioData.about} />
-                    </Col>
-                    <Col xs={24} xl={15} lg={24} className="pf-about-exp-exp">
                       <div className="pf-exp-projects-stack">
-                        <ExperienceSection experience={portfolioData.experience} />
+                        <AboutSection
+                          about={portfolioData.about}
+                          cvDownloadPath={portfolioData.cvDownloadPath}
+                        />
                         <ProjectsSection projects={portfolioData.projects} />
                       </div>
+                    </Col>
+                    <Col xs={24} xl={15} lg={24} className="pf-about-exp-exp">
+                      <ExperienceSection experience={portfolioData.experience} />
                     </Col>
                   </Row>
                   <SkillsDetailSection technicalSkills={portfolioData.technicalSkills} />

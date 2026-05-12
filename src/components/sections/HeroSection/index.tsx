@@ -1,25 +1,18 @@
-import { GithubOutlined, LinkedinOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons'
+import { GithubOutlined, LinkedinOutlined, MailOutlined } from '@ant-design/icons'
 import { Col, Divider, Row, Space, Typography } from 'antd'
-import { useNavigate } from 'react-router-dom'
 import type { HeroSectionProps } from './types'
 import heroPortrait from '../../../assets/hero.png'
-import heroBg from '../../../assets/hero-bg.png'
 
 const { Title, Text, Link } = Typography
 
-export function HeroSection({ firstName, lastName, role, email, phone, socialProfiles }: HeroSectionProps) {
-  const navigate = useNavigate()
+export function HeroSection({ firstName, lastName, role, email, socialProfiles }: HeroSectionProps) {
   const github = socialProfiles.find((l) => l.label.toLowerCase().includes('github'))
   const linkedin = socialProfiles.find((l) => l.label.toLowerCase().includes('linkedin'))
 
   const socialSplit = <Divider type="vertical" className="pf-hero-social-divider" />
 
   return (
-    <section id="hero" className="pf-section pf-hero">
-      <img src={heroBg} alt="" className="pf-hero-bg-photo" aria-hidden />
-      <span className="pf-hero-bg-word" aria-hidden="true">
-        HELLO
-      </span>
+    <section id="hero" className="pf-section pf-hero ">
       <span className="pf-hero-bg-dots" aria-hidden="true" />
       <Row gutter={[40, 32]} align="middle" className="pf-hero-grid">
         <Col xs={24} lg={14} xl={15} className="pf-hero-copy">
@@ -38,12 +31,6 @@ export function HeroSection({ firstName, lastName, role, email, phone, socialPro
               <Link className="pf-hero-contact-link" href={`mailto:${email}`}>
                 <MailOutlined className="pf-hero-contact-icon" aria-hidden />
                 {email}
-              </Link>
-            ) : null}
-            {phone ? (
-              <Link className="pf-hero-contact-link" href={`tel:${phone.replace(/\s/g, '')}`}>
-                <PhoneOutlined className="pf-hero-contact-icon" aria-hidden />
-                {phone}
               </Link>
             ) : null}
           </Space>
@@ -69,7 +56,7 @@ export function HeroSection({ firstName, lastName, role, email, phone, socialPro
             <span className="pf-hero-deco pf-hero-deco-ring" aria-hidden="true" />
             <span className="pf-hero-deco pf-hero-deco-dot pf-hero-deco-dot-a" aria-hidden="true" />
             <span className="pf-hero-deco pf-hero-deco-dot pf-hero-deco-dot-b" aria-hidden="true" />
-            <div className="pf-hero-visual-panel" aria-hidden="true" />
+            {/* <div className="pf-hero-visual-panel" aria-hidden="true" /> */}
             <div className="pf-hero-photo-frame">
               <img
                 src={heroPortrait}
@@ -79,9 +66,6 @@ export function HeroSection({ firstName, lastName, role, email, phone, socialPro
                 height={520}
               />
             </div>
-            <button type="button" className="pf-hero-float-cta" onClick={() => void navigate('/get-in-touch')}>
-              Let&apos;s Talk
-            </button>
           </div>
         </Col>
       </Row>

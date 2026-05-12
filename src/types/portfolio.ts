@@ -53,6 +53,8 @@ export type PortfolioData = {
   location: string
   email: string
   phone?: string
+  /** Public URL path to a static CV file (e.g. `/Shogher-Harutyunyan-CV.pdf` in `public/`). */
+  cvDownloadPath: string
   tagline: string
   about: string[]
   aboutStack: TechHighlight[]

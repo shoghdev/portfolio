@@ -1,4 +1,4 @@
-import { GlobalOutlined, RightOutlined } from '@ant-design/icons'
+import { GlobalOutlined } from '@ant-design/icons'
 import { Card, List, Typography } from 'antd'
 import { SectionReveal } from '../../common/SectionReveal'
 import type { ProjectsSectionProps } from './types'
@@ -34,10 +34,6 @@ export function ProjectsSection({ projects }: ProjectsSectionProps) {
             </List.Item>
           )}
         />
-        <a href="#projects" className="pf-projects-view-all">
-          View all projects
-          <RightOutlined className="pf-projects-view-all-icon" aria-hidden />
-        </a>
       </Card>
     </SectionReveal>
   )
