@@ -3,7 +3,7 @@
 :root,
 [data-theme='light'] {
   --pf-emerald: #16a34a;
-  --pf-emerald-dark: #15803d;
+  --pf-emerald-dark: #77ABD9;
   --pf-emerald-glow: rgba(22, 163, 74, 0.22);
   --design-bg: #ffffff;
   --design-bg-muted: #f8fafc;
@@ -16,7 +16,7 @@
   --pf-shadow: 0 18px 48px rgba(17, 24, 39, 0.07);
   --pf-shadow-soft: 0 10px 30px rgba(17, 24, 39, 0.06);
   --pf-hero-panel: #14532d;
-  --pf-hero-accent-block: #22c55e;
+  --pf-hero-accent-block: #F2E205;
   --pf-muted-bg: #f8fafc;
   font-family:
     'Plus Jakarta Sans',

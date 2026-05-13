@@ -33,8 +33,7 @@ export function GenerateCvPage() {
     <section className="portfolio-section generate-cv-page">
       <Title level={2}>Generate CV with Gemini</Title>
       <Paragraph>
-        Enter a prompt for Gemini AI. The response is rendered in Markdown and downloaded as a
-        separate file.
+        Enter a prompt for generating a CV. 
       </Paragraph>
 
       <Form form={form} layout="vertical" onFinish={handleGenerateCv}>

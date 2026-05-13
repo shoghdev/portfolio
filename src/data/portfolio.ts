@@ -166,6 +166,7 @@ export const portfolioData: PortfolioData = {
         'Guided students in creating games, applications, and simple automation projects through hands-on, project-based learning.',
         'Encouraged creativity, computational thinking, teamwork, and independent exploration in the classroom.',
         'Provided personalized support to help students debug code, improve skills, and gain confidence in technology and innovation.',
+        'You can find my courses on my blog: https://shogherharutyunyan.wordpress.com/',
       ],
     },
     {

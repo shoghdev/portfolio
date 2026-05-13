@@ -1036,7 +1036,7 @@
   display: block;
   font-size: 14px;
   font-weight: 600;
-  color: var(--pf-green-600);
+  color: var(--pf-emerald-dark);
   margin-bottom: 6px;
 }
 
@@ -1093,7 +1093,7 @@
 }
 
 .pf-projects-globe {
-  color: var(--pf-green-600);
+  color: var(--pf-emerald-dark);
   font-size: 18px;
 }
 
@@ -1109,7 +1109,7 @@
 
 .pf-projects-url {
   font-size: 14px;
-  color: var(--pf-green-600);
+  color: var(--pf-emerald-dark);
   text-decoration: none;
   word-break: break-all;
 }
