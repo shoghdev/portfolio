@@ -11,16 +11,27 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
       children: (
         <div className="pf-experience-block">
           <Text className="pf-experience-period">{entry.period}</Text>
+
           <Title level={4} className="pf-experience-job-title">
             {entry.role}
           </Title>
+
           <Text className="pf-experience-company">{entry.company}</Text>
+
           <List
             size="small"
             split={false}
             className="pf-experience-list"
             dataSource={entry.highlights}
-            renderItem={(item) => <List.Item className="pf-experience-list-item">{item}</List.Item>}
+            renderItem={(item, index) => (
+              <List.Item key={index} className="pf-experience-list-item">
+                <span
+                  dangerouslySetInnerHTML={{
+                    __html: item,
+                  }}
+                />
+              </List.Item>
+            )}
           />
         </div>
       ),
@@ -33,12 +44,22 @@ export function ExperienceSection({ experience }: ExperienceSectionProps) {
   ]
 
   return (
-    <SectionReveal id="experience" className="pf-section pf-section-main pf-exp-beside-about">
-      <Card bordered={false} className="pf-surface-card pf-main-card pf-experience-card">
+    <SectionReveal
+      id="experience"
+      className="pf-section pf-section-main pf-exp-beside-about"
+    >
+      <Card
+        bordered={false}
+        className="pf-surface-card pf-main-card pf-experience-card"
+      >
         <Title level={2} className="pf-card-title">
-          Professional experience
+          Professional Experience
         </Title>
-        <Timeline className="pf-ant-timeline pf-experience-timeline pf-timeline-extended" items={timelineItems} />
+
+        <Timeline
+          className="pf-ant-timeline pf-experience-timeline pf-timeline-extended"
+          items={timelineItems}
+        />
       </Card>
     </SectionReveal>
   )

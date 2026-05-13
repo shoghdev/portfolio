@@ -1063,6 +1063,10 @@
   display: block;
 }
 
+.pf-experience-list.ant-list .ant-list-item span a {
+  color: var(--pf-emerald);
+}
+
 .pf-experience-list.ant-list .ant-list-item::before {
   content: '•';
   color: var(--pf-green-600);
