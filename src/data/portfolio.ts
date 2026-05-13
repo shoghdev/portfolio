@@ -24,10 +24,50 @@ export const portfolioData: PortfolioData = {
   technicalSkills: [
     { id: 'html5', label: 'HTML5', shortLabel: 'H5' },
     { id: 'css3', label: 'CSS3', shortLabel: 'C3' },
-    { id: 'js', label: 'JS', shortLabel: 'JS' },
+    { id: 'scss', label: 'SCSS', shortLabel: 'SC' },
+    { id: 'javascript', label: 'JavaScript', shortLabel: 'JS' },
+    { id: 'typescript', label: 'TypeScript', shortLabel: 'TS' },
+  
+    { id: 'react', label: 'React.js', shortLabel: 'Rx' },
+    { id: 'nextjs', label: 'Next.js', shortLabel: 'Nx' },
+    { id: 'redux', label: 'Redux', shortLabel: 'Rd' },
+    { id: 'alpinejs', label: 'Alpine.js', shortLabel: 'Al' },
+    { id: 'tailwind', label: 'Tailwind CSS', shortLabel: 'Tw' },
+    { id: 'bootstrap', label: 'Bootstrap', shortLabel: 'Bs' },
+  
+    { id: 'nodejs', label: 'Node.js', shortLabel: 'Nj' },
+    { id: 'expressjs', label: 'Express.js', shortLabel: 'Ex' },
+    { id: 'php', label: 'PHP', shortLabel: 'Php' },
     { id: 'laravel', label: 'Laravel', shortLabel: 'Lv' },
     { id: 'livewire', label: 'Livewire', shortLabel: 'Lw' },
-    { id: 'react', label: 'React.js', shortLabel: 'Rx' },
+  
+    { id: 'rest-api', label: 'REST API Design', shortLabel: 'API' },
+    { id: 'authentication', label: 'Authentication', shortLabel: 'Auth' },
+    { id: 'middleware', label: 'Middleware', shortLabel: 'Mw' },
+  
+    { id: 'mysql', label: 'MySQL', shortLabel: 'Ms' },
+    { id: 'postgresql', label: 'PostgreSQL', shortLabel: 'Pg' },
+    { id: 'mongodb', label: 'MongoDB', shortLabel: 'Mg' },
+    { id: 'redis', label: 'Redis', shortLabel: 'Re' },
+  
+    { id: 'python', label: 'Python', shortLabel: 'Py' },
+  
+    { id: 'git', label: 'Git (GitHub, BitBucket)', shortLabel: 'Gi' },
+    { id: 'vite', label: 'Vite', shortLabel: 'Vi' },
+    { id: 'webpack', label: 'Webpack', shortLabel: 'Wp' },
+  
+    { id: 'nginx', label: 'Nginx', shortLabel: 'Ng' },
+    { id: 'apache', label: 'Apache', shortLabel: 'Ap' },
+  
+    { id: 'figma', label: 'Figma', shortLabel: 'Fg' },
+    { id: 'zeplin', label: 'Zeplin', shortLabel: 'Zp' },
+    { id: 'adobe-suite', label: 'Adobe XD / AI / PS', shortLabel: 'AD' },
+  
+    { id: 'trello', label: 'Trello', shortLabel: 'Tr' },
+    { id: 'jira', label: 'JIRA', shortLabel: 'Ji' },
+  
+    { id: 'responsive-ui-ux', label: 'Responsive UI/UX Design', shortLabel: 'RUX' },
+    { id: 'component-architecture', label: 'Component-based Architecture', shortLabel: 'CA' },
   ],
   education: [
     {
@@ -41,26 +81,7 @@ export const portfolioData: PortfolioData = {
       institution: 'AGBU Women Coders Program',
     },
   ],
-  testimonials: [
-    {
-      quote:
-        'Consistently delivered thoughtful solutions across React and Laravel, communicated clearly with the team, and raised the quality bar on every release.',
-      author: 'Apricode Team',
-      role: 'Team Lead',
-    },
-    {
-      quote:
-        'Outstanding mentorship in robotics and programming—students stayed engaged because lessons were practical, well structured, and genuinely fun.',
-      author: 'Armath Engineering Makerspaces',
-      role: 'Program Coordinator',
-    },
-    {
-      quote:
-        'Bridges product design and implementation exceptionally well; responsive UIs and reliable APIs shipped on time without sacrificing maintainability.',
-      author: 'Product collaborators',
-      role: 'Cross-functional partners',
-    },
-  ],
+
   skills: [
     {
       title: 'Frontend',
@@ -258,8 +279,8 @@ export const portfolioData: PortfolioData = {
     },
   ],
   socialProfiles: [
-    { label: 'GitHub', href: 'https://github.com/' },
-    { label: 'LinkedIn', href: 'https://www.linkedin.com/' },
+    { label: 'GitHub', href: 'https://github.com/shoghdev/' },
+    { label: 'LinkedIn', href: 'https://www.linkedin.com/in/shogher-harutyunyan-8044181aa' },
   ],
   socialLinks: [
     { label: 'Foodetory', href: 'https://foodetory.am/hy' },

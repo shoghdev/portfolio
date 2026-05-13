@@ -60,7 +60,6 @@ export type PortfolioData = {
   aboutStack: TechHighlight[]
   technicalSkills: TechHighlight[]
   education: EducationEntry[]
-  testimonials: Testimonial[]
   skills: SkillCategory[]
   experience: ExperienceEntry[]
   projects: Project[]
