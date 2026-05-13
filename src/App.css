@@ -279,26 +279,29 @@
 
 /* Vertical “HELLO” page watermark (home) — sits behind main sections */
 .pf-hello-watermark {
-  position: fixed;
-  top: clamp(104px, 18vh, 200px);
-  left: clamp(0px, calc(50% - min(50vw, 660px) - 4px), 24px);
-  z-index: 0;
+  position: absolute;
+  left: -360px;
+  top: 3%;
+  transform: translateY(-50%) rotate(180deg);
+  writing-mode: vertical-rl;
+
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+
+  z-index: 0;
   pointer-events: none;
   user-select: none;
 }
 
 .pf-hello-watermark-letter {
-  display: block;
-  font-family: inherit;
-  font-size: clamp(3.25rem, 9.5vw, 7.5rem);
-  font-weight: 800;
-  line-height: 0.78;
-  letter-spacing: -0.02em;
+  font-size: clamp(90px, 14vw, 220px);
+  font-weight: 900;
+  color: rgba(120, 120, 120, 0.05);
+  line-height: 0.85;
+  letter-spacing: 4px;
+  font-family: 'Poppins', sans-serif;
   text-transform: uppercase;
-  color: color-mix(in srgb, var(--pf-text) 5.5%, transparent);
 }
 
 [data-theme='dark'] .pf-hello-watermark-letter {
