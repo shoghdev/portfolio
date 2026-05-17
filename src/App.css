@@ -786,6 +786,18 @@
   z-index: 2;
 }
 
+.pf-video-btn {
+  margin-top: 12px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  left: 130px;
+  background-color: var(--pf-text-muted);
+}
+
 .pf-hero-photo {
   display: block;
   width: 100%;

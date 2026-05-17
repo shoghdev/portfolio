@@ -1,7 +1,9 @@
 import { GithubOutlined, LinkedinOutlined, MailOutlined } from '@ant-design/icons'
 import { Col, Divider, Row, Space, Typography } from 'antd'
 import type { HeroSectionProps } from './types'
-import heroPortrait from '../../../assets/hero.png'
+import heroPortrait from '../../../assets/hero-video.mp4'
+
+import { useRef, useState } from 'react'
 
 const { Title, Text, Link } = Typography
 
@@ -10,6 +12,21 @@ export function HeroSection({ firstName, lastName, role, email, socialProfiles }
   const linkedin = socialProfiles.find((l) => l.label.toLowerCase().includes('linkedin'))
 
   const socialSplit = <Divider type="vertical" className="pf-hero-social-divider" />
+
+  const videoRef = useRef<HTMLVideoElement | null>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+
+  const toggleVideo = () => {
+    if (!videoRef.current) return
+
+    if (isPlaying) {
+      videoRef.current.pause()
+    } else {
+      videoRef.current.play()
+    }
+
+    setIsPlaying(!isPlaying)
+  }
 
   return (
     <section id="hero" className="pf-section pf-hero ">
@@ -58,13 +75,22 @@ export function HeroSection({ firstName, lastName, role, email, socialProfiles }
             <span className="pf-hero-deco pf-hero-deco-dot pf-hero-deco-dot-b" aria-hidden="true" />
             {/* <div className="pf-hero-visual-panel" aria-hidden="true" /> */}
             <div className="pf-hero-photo-frame">
-              <img
+              <video
+                ref={videoRef}
                 src={heroPortrait}
-                alt="Portrait of Shogher Harutyunyan"
                 className="pf-hero-photo"
                 width={420}
                 height={520}
+                playsInline
               />
+
+              <button
+                type="button"
+                onClick={toggleVideo}
+                className="pf-video-btn"
+              >
+                {isPlaying ? '⏸' : '►'}
+              </button>
             </div>
           </div>
         </Col>
