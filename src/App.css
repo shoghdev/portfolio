@@ -786,6 +786,14 @@
   z-index: 2;
 }
 
+.pf-projects-show-more button {
+  color: #fff;
+}
+
+.pf-projects-show-more button:hover {
+  color: var(--pf-emerald-dark);
+}
+
 .pf-video-btn {
   margin-top: 12px;
   padding: 10px 18px;
